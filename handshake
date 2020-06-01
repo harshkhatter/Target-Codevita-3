@@ -1,0 +1,38 @@
+#!/bin/python3
+#https://www.hackerrank.com/contests/target-codevita-3/challenges/handshake
+import os
+import sys
+
+#
+# Complete the handshake function below.
+#
+def handshake(n):
+    # function handshake with argument 'n' number of persons 
+    
+    # as discussed in video, the formula derived for n persons is:
+    # (n* n-1) /2
+    # take a variable 'h' to temporarily store the result and retun it in integer format
+    h = (n*(n-1))/2
+    
+    # type conversion of float to int
+    return int(h)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input())
+
+    for t_itr in range(t):
+        
+        #variable 'n' stores the number of persons in the room to handshake
+        n = int(input())
+
+        #call a function handshake with argument 'n' number of persons 
+        result = handshake(n)
+
+        # function will return the number of total handshakes done
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+#https://www.hackerrank.com/contests/target-codevita-3/challenges/handshake 
