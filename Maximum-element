@@ -1,0 +1,47 @@
+# https://www.hackerrank.com/contests/target-codevita-3/challenges/maximum-element
+# use a class for stack in python
+# though append in list and POP can also be used, without using class
+class CustomStack:
+    def __init__(self):
+        self.stack = []
+        self.maxima = []
+
+    #defining a PUSH function for inserting a value in stack    choice 1
+    def push(self, value):
+        self.stack.append(value)
+        if not self.maxima or value >= self.maxima[-1]:
+            self.maxima.append(value)
+    
+    #defining a POP function for deleting the Top of the stack element  choice 2
+    def pop(self):
+        value = self.stack.pop()
+        if value == self.maxima[-1]:
+            self.maxima.pop()     
+ 
+    #defining a printMAx function for fetching the maximum value from the stack   choice 3
+    def printMax(self):
+        print(self.maxima[-1])
+     
+    
+if __name__ == '__main__':
+    # to use the stack operations, just use the variable 'cs'
+    # this 'cs' calls the function Customstack()
+    cs = CustomStack()
+    
+    # number of instructions to be executed store in 'N'
+    N = int(input())
+     
+    # take the instruction one by one and execute it using functions
+    for i in range(N):
+        unknown = input()   # take choice and number
+        command = unknown[0]    # store the choice
+         
+        if command == '1':      # if choice is 1 call PUSH function
+            cmd, value = map(int, unknown.split())
+            cs.push(value)
+        elif command == '2':     # if choice is 2 call POP function
+            cs.pop()
+        else:                    # if choice is 3 or any,  call printMax( ) function
+            cs.printMax()
+            
+  # https://www.hackerrank.com/contests/target-codevita-3/challenges/maximum-element
